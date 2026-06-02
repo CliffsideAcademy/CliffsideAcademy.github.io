@@ -169,3 +169,35 @@ nav a:active {
   filter: brightness(1.2);
   text-decoration: underline;
 }
+.news-card {
+  padding: 18px;
+  margin: 20px auto;
+
+  max-width: 900px;
+
+  background-color: rgba(70, 35, 130, 0.55);
+  border: 1px solid rgba(140, 90, 220, 0.25);
+
+  color: rgb(191, 144, 0);
+}
+
+.news-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.news-card p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.enhanced-news {
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(140, 90, 220, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.enhanced-news:hover {
+  transform: translateY(-2px);
+}
