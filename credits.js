@@ -34,25 +34,29 @@ const rankOrder = {
 
 const grouped = {};
 
-credits.forEach(member => {
-  if (!grouped[member.team]) {
-    grouped[member.team] = [];
-  }
-  grouped[member.team].push(member);
+// group teams
+credits.forEach(c => {
+  if (!grouped[c.team]) grouped[c.team] = [];
+  grouped[c.team].push(c);
 });
 
+// sort by rank inside each team
 Object.keys(grouped).forEach(team => {
   grouped[team].sort((a, b) => {
     return (rankOrder[a.rank] || 99) - (rankOrder[b.rank] || 99);
   });
 });
 
+// render collapsible sections
 Object.keys(grouped).forEach(team => {
   const section = document.createElement("div");
 
-  const title = document.createElement("h2");
-  title.textContent = team;
-  section.appendChild(title);
+  const header = document.createElement("div");
+  header.className = "team-header";
+  header.textContent = team;
+
+  const content = document.createElement("div");
+  content.className = "team-content";
 
   grouped[team].forEach(member => {
     const card = document.createElement("div");
@@ -63,8 +67,15 @@ Object.keys(grouped).forEach(team => {
       <p><strong>Rank:</strong> ${member.rank}</p>
     `;
 
-    section.appendChild(card);
+    content.appendChild(card);
   });
+
+  header.addEventListener("click", () => {
+    content.classList.toggle("hidden");
+  });
+
+  section.appendChild(header);
+  section.appendChild(content);
 
   container.appendChild(section);
 });
