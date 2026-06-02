@@ -160,3 +160,12 @@ nav a:active {
 .announcement-spacer {
   height: 18px;
 }
+.community-link {
+  color: cyan;
+  text-decoration: none;
+}
+
+.community-link:hover {
+  filter: brightness(1.2);
+  text-decoration: underline;
+}
