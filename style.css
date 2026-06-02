@@ -46,12 +46,8 @@ nav a {
   margin-top: 25px;
   padding: 12px;
   color: rgb(191, 144, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(105, 55, 165, 0.85),
-    rgba(75, 35, 140, 0.85)
-  );
-  border: 1px solid rgba(105, 55, 165, 0.9);
+  background-color: rgba(60, 30, 100, 0.55);
+  border: 1px solid rgba(120, 70, 200, 0.35);
 }
 
 .team-content {
@@ -63,91 +59,8 @@ nav a {
 
 .credit-card {
   padding: 12px;
-  border: 1px solid rgba(105, 55, 165, 0.9);
-  background: linear-gradient(
-    135deg,
-    rgba(105, 55, 165, 0.85),
-    rgba(75, 35, 140, 0.85)
-  );
-  color: rgb(191, 144, 0);
-}
-
-.card-inner h3 {
-  margin: 0 0 10px 0;
-}
-
-.card-inner p {
-  margin: 0;
-}html, body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Merriweather", serif;
-  color: rgb(191, 144, 0);
-  background-image: url("assets/Background.png");
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  padding: 30px;
-  box-sizing: border-box;
-}
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.title {
-  margin: 0;
-}
-
-nav {
-  display: flex;
-  gap: 80px;
-}
-
-nav a {
-  color: rgb(191, 144, 0);
-  text-decoration: none;
-}
-
-#credits-container {
-  display: block;
-  margin-top: 20px;
-  padding-bottom: 80px;
-}
-
-.team-header {
-  font-size: 22px;
-  margin-top: 25px;
-  padding: 12px;
-  color: rgb(191, 144, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(105, 55, 165, 0.85),
-    rgba(75, 35, 140, 0.85)
-  );
-  border: 1px solid rgba(105, 55, 165, 0.9);
-}
-
-.team-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.credit-card {
-  padding: 12px;
-  border: 1px solid rgba(105, 55, 165, 0.9);
-  background: linear-gradient(
-    135deg,
-    rgba(105, 55, 165, 0.85),
-    rgba(75, 35, 140, 0.85)
-  );
+  background-color: rgba(70, 35, 120, 0.55);
+  border: 1px solid rgba(120, 70, 200, 0.35);
   color: rgb(191, 144, 0);
 }
 
