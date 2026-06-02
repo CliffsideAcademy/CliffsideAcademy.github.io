@@ -53,12 +53,12 @@ Object.keys(grouped).forEach(team => {
 Object.keys(grouped).forEach(team => {
   const section = document.createElement("div");
 
-  const header = document.createElement("div");
-  header.className = "team-header";
-  header.textContent = team;
+  const title = document.createElement("div");
+  title.className = "team-header";
+  title.textContent = team;
 
   const content = document.createElement("div");
-  content.className = "team-content hidden";
+  content.className = "team-content";
 
   grouped[team].forEach(member => {
     const card = document.createElement("div");
@@ -67,18 +67,16 @@ Object.keys(grouped).forEach(team => {
     const roleText = member.role ? ` (${member.role})` : "";
 
     card.innerHTML = `
-      <h3>${member.username}</h3>
-      <p><strong>Rank:</strong> ${member.rank}${roleText}</p>
+      <div class="card-inner">
+        <h3>${member.username}</h3>
+        <p><strong>Rank:</strong> ${member.rank}${roleText}</p>
+      </div>
     `;
 
     content.appendChild(card);
   });
 
-  header.addEventListener("click", () => {
-    content.classList.toggle("hidden");
-  });
-
-  section.appendChild(header);
+  section.appendChild(title);
   section.appendChild(content);
 
   container.appendChild(section);
