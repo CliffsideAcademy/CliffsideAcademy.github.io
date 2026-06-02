@@ -23,6 +23,11 @@ const credits = [
 
 const container = document.getElementById("credits-container");
 
+const intro = document.createElement("h2");
+intro.className = "credits-intro";
+intro.textContent = "And to you, the player. We appreciate you playing our game.";
+container.appendChild(intro);
+
 const rankOrder = {
   "Owner": 1,
   "Co-Owner": 2,
