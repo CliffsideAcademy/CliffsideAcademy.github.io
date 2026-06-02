@@ -23,6 +23,10 @@ const credits = [
 
 const container = document.getElementById("credits-container");
 
+if (!container) {
+  throw new Error("Missing #credits-container in HTML");
+}
+
 container.innerHTML = "";
 
 const rankOrder = {
@@ -46,6 +50,7 @@ for (const team in grouped) {
   grouped[team].sort((a, b) => {
     const rankDiff =
       (rankOrder[a.rank] || 99) - (rankOrder[b.rank] || 99);
+
     if (rankDiff !== 0) return rankDiff;
 
     const roleValue = r =>
@@ -68,12 +73,10 @@ for (const team in grouped) {
     const card = document.createElement("div");
     card.className = "credit-card";
 
-    const roleText = member.role ? ` • ${member.role}` : "";
-
     card.innerHTML = `
       <div class="card-inner">
         <h3>${member.username}</h3>
-        <p>${member.rank}${roleText}</p>
+        <p>${member.rank}${member.role ? ` • ${member.role}` : ""}</p>
       </div>
     `;
 
