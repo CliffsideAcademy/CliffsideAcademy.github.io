@@ -5,6 +5,7 @@ html, body {
 }
 
 body {
+  font-family: "Merriweather", serif;
   color: rgb(191, 144, 0);
   background-image: url("assets/Background.png");
   background-size: cover;
