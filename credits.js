@@ -23,39 +23,42 @@ const credits = [
 
 const container = document.getElementById("credits-container");
 
+container.innerHTML = "";
+
 const intro = document.createElement("h2");
 intro.className = "credits-intro";
 intro.textContent = "And to you, the player. We appreciate you playing our game.";
 container.appendChild(intro);
 
 const rankOrder = {
-  "Owner": 1,
+  Owner: 1,
   "Co-Owner": 2,
   "Advisory Board": 3,
-  "Administrator": 4,
-  "Moderator": 5,
-  "Developer": 6,
-  "Helper": 7
+  Administrator: 4,
+  Moderator: 5,
+  Developer: 6,
+  Helper: 7
 };
 
 const grouped = {};
 
-credits.forEach(c => {
+for (const c of credits) {
   if (!grouped[c.team]) grouped[c.team] = [];
   grouped[c.team].push(c);
-});
+}
 
-Object.keys(grouped).forEach(team => {
+for (const team in grouped) {
   grouped[team].sort((a, b) => {
-    const rankDiff = (rankOrder[a.rank] || 99) - (rankOrder[b.rank] || 99);
+    const rankDiff =
+      (rankOrder[a.rank] || 99) - (rankOrder[b.rank] || 99);
     if (rankDiff !== 0) return rankDiff;
 
-    const roleValue = r => (r.role === "Head" ? 1 : r.role === "Co-Head" ? 2 : 3);
+    const roleValue = r =>
+      r.role === "Head" ? 1 : r.role === "Co-Head" ? 2 : 3;
+
     return roleValue(a) - roleValue(b);
   });
-});
 
-Object.keys(grouped).forEach(team => {
   const section = document.createElement("div");
   section.className = "team-section";
 
@@ -66,7 +69,7 @@ Object.keys(grouped).forEach(team => {
   const content = document.createElement("div");
   content.className = "team-content";
 
-  grouped[team].forEach(member => {
+  for (const member of grouped[team]) {
     const card = document.createElement("div");
     card.className = "credit-card";
 
@@ -80,14 +83,16 @@ Object.keys(grouped).forEach(team => {
     `;
 
     content.appendChild(card);
-  });
+  }
 
   section.appendChild(header);
   section.appendChild(content);
   container.appendChild(section);
-});
+}
 
-const footer = document.createElement("div");
-footer.className = "credits-footer";
-footer.textContent = "And to you, the player. We appreciate you playing our game.";
-container.appendChild(footer);
+const outro = document.createElement("h2");
+outro.className = "credits-intro";
+outro.textContent =
+  "And to you, the player. We appreciate you playing our game.";
+
+container.appendChild(outro);
