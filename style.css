@@ -43,10 +43,14 @@ nav a {
 .team-header {
   font-size: 22px;
   margin-top: 25px;
-  border: 1px solid rgb(105, 55, 165);
   padding: 12px;
-  background-color: rgb(105, 55, 165);
   color: rgb(191, 144, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(105, 55, 165, 0.85),
+    rgba(75, 35, 140, 0.85)
+  );
+  border: 1px solid rgba(105, 55, 165, 0.9);
 }
 
 .team-content {
@@ -57,9 +61,14 @@ nav a {
 }
 
 .credit-card {
-  border: 1px solid rgb(105, 55, 165);
-  background-color: rgba(105, 55, 165, 0.15);
   padding: 12px;
+  border: 1px solid rgba(105, 55, 165, 0.9);
+  background: linear-gradient(
+    135deg,
+    rgba(105, 55, 165, 0.85),
+    rgba(75, 35, 140, 0.85)
+  );
+  color: rgb(191, 144, 0);
 }
 
 .card-inner h3 {
