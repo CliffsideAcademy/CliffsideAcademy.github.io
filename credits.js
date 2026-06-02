@@ -52,10 +52,11 @@ Object.keys(grouped).forEach(team => {
 
 Object.keys(grouped).forEach(team => {
   const section = document.createElement("div");
+  section.className = "team-section";
 
-  const title = document.createElement("div");
-  title.className = "team-header";
-  title.textContent = team;
+  const header = document.createElement("div");
+  header.className = "team-header";
+  header.textContent = team;
 
   const content = document.createElement("div");
   content.className = "team-content";
@@ -64,20 +65,19 @@ Object.keys(grouped).forEach(team => {
     const card = document.createElement("div");
     card.className = "credit-card";
 
-    const roleText = member.role ? ` (${member.role})` : "";
+    const roleText = member.role ? ` • ${member.role}` : "";
 
     card.innerHTML = `
       <div class="card-inner">
         <h3>${member.username}</h3>
-        <p><strong>Rank:</strong> ${member.rank}${roleText}</p>
+        <p>${member.rank}${roleText}</p>
       </div>
     `;
 
     content.appendChild(card);
   });
 
-  section.appendChild(title);
+  section.appendChild(header);
   section.appendChild(content);
-
   container.appendChild(section);
 });
