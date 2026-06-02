@@ -1,18 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const hero = document.querySelector(".business-hero");
-  const sections = document.querySelectorAll(".business-section");
+const panels = document.querySelectorAll(".panel");
 
-  const fadeIn = (el, delay) => {
-    el.classList.add("fade-init");
+panels.forEach(panel => {
+  panel.classList.add("enhanced-panel");
 
-    setTimeout(() => {
-      el.classList.add("fade-in");
-    }, delay);
-  };
-
-  if (hero) fadeIn(hero, 100);
-
-  sections.forEach((el, i) => {
-    fadeIn(el, 180 + i * 120);
+  const titles = panel.querySelectorAll("h2");
+  titles.forEach(t => {
+    t.classList.add("panel-title");
   });
 });
