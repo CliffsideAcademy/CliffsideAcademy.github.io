@@ -84,14 +84,22 @@ nav a:active {
   transform: translateY(0px);
 }
 
+/* REQUIRED FIX: remove internal scroll so JS-driven layout works properly */
 #credits-container {
   margin-top: 30px;
   padding-bottom: 40px;
-
-  max-height: calc(100vh - 140px);
-  overflow-y: auto;
+  max-height: none;
+  overflow: visible;
 }
 
+/* REQUIRED FIX: JS-generated intro text styling */
+.credits-intro {
+  font-size: 20px;
+  margin: 10px 0 25px 0;
+  letter-spacing: 0.3px;
+}
+
+/* existing layout */
 .team-section {
   margin-bottom: 35px;
 }
