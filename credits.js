@@ -86,3 +86,8 @@ Object.keys(grouped).forEach(team => {
   section.appendChild(content);
   container.appendChild(section);
 });
+
+const footer = document.createElement("div");
+footer.className = "credits-footer";
+footer.textContent = "And to you, the player. We appreciate you playing our game.";
+container.appendChild(footer);
