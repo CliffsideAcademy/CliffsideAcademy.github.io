@@ -69,25 +69,17 @@ nav a {
   font-size: 14px;
   letter-spacing: 0.3px;
 
-  transition: transform 0.15s ease, border-color 0.15s ease, filter 0.15s ease;
+  transition: 0.15s;
 }
 
 nav a:hover {
   transform: translateY(-2px);
-  border-color: rgba(180, 140, 255, 0.8);
   filter: brightness(1.1);
-}
-
-nav a:active {
-  transform: translateY(0px);
 }
 
 #credits-container {
   height: calc(100vh - 90px);
   overflow-y: auto;
-
-  display: flex;
-  flex-direction: column;
 
   padding: 20px 40px 40px 40px;
 }
@@ -119,7 +111,7 @@ nav a:active {
   padding: 14px;
   background-color: rgba(70, 35, 130, 0.55);
   border: 1px solid rgba(140, 90, 220, 0.2);
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  transition: 0.15s;
 }
 
 .credit-card:hover {
@@ -135,12 +127,12 @@ nav a:active {
 .card-inner p {
   margin: 0;
   font-size: 14px;
-  opacity: 0.95;
 }
 
 .credits-footer {
-  margin-top: auto;
-  padding-top: 40px;
+  margin-top: 40px;
+  padding-top: 20px;
+
   text-align: center;
   font-size: 18px;
   opacity: 0.95;
