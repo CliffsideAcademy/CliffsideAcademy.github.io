@@ -21,70 +21,63 @@ const credits = [
   { username: "jjiggy1", rank: "Helper", team: "Story Team" }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("credits-container");
+const container = document.getElementById("credits-container");
 
-  if (!container) {
-    console.error("Missing #credits-container in HTML");
-    return;
-  }
+const rankOrder = {
+  "Owner": 1,
+  "Co-Owner": 2,
+  "Advisory Board": 3,
+  "Administrator": 4,
+  "Moderator": 5,
+  "Developer": 6,
+  "Helper": 7
+};
 
-  container.replaceChildren();
+const grouped = {};
 
-  const rankOrder = {
-    Owner: 1,
-    "Co-Owner": 2,
-    "Advisory Board": 3,
-    Administrator: 4,
-    Moderator: 5,
-    Developer: 6,
-    Helper: 7
-  };
+credits.forEach(c => {
+  if (!grouped[c.team]) grouped[c.team] = [];
+  grouped[c.team].push(c);
+});
 
-  const grouped = Object.create(null);
+Object.keys(grouped).forEach(team => {
+  grouped[team].sort((a, b) => {
+    const rankDiff = (rankOrder[a.rank] || 99) - (rankOrder[b.rank] || 99);
+    if (rankDiff !== 0) return rankDiff;
 
-  for (const c of credits) {
-    if (!grouped[c.team]) grouped[c.team] = [];
-    grouped[c.team].push(c);
-  }
+    const roleValue = r => (r.role === "Head" ? 1 : r.role === "Co-Head" ? 2 : 3);
+    return roleValue(a) - roleValue(b);
+  });
+});
 
-  for (const team in grouped) {
-    grouped[team].sort((a, b) => {
-      const rankDiff = (rankOrder[a.rank] || 99) - (rankOrder[b.rank] || 99);
-      if (rankDiff !== 0) return rankDiff;
+Object.keys(grouped).forEach(team => {
+  const section = document.createElement("div");
+  section.className = "team-section";
 
-      const roleValue = r => (r.role === "Head" ? 1 : r.role === "Co-Head" ? 2 : 3);
-      return roleValue(a) - roleValue(b);
-    });
+  const header = document.createElement("div");
+  header.className = "team-header";
+  header.textContent = team;
 
-    const section = document.createElement("div");
-    section.className = "team-section";
+  const content = document.createElement("div");
+  content.className = "team-content";
 
-    const header = document.createElement("div");
-    header.className = "team-header";
-    header.textContent = team;
+  grouped[team].forEach(member => {
+    const card = document.createElement("div");
+    card.className = "credit-card";
 
-    const content = document.createElement("div");
-    content.className = "team-content";
+    const roleText = member.role ? ` • ${member.role}` : "";
 
-    for (const member of grouped[team]) {
-      const card = document.createElement("div");
-      card.className = "credit-card";
+    card.innerHTML = `
+      <div class="card-inner">
+        <h3>${member.username}</h3>
+        <p>${member.rank}${roleText}</p>
+      </div>
+    `;
 
-      const roleText = member.role ? ` • ${member.role}` : "";
+    content.appendChild(card);
+  });
 
-      card.innerHTML = `
-        <div class="card-inner">
-          <h3>${member.username}</h3>
-          <p>${member.rank}${roleText}</p>
-        </div>
-      `;
-
-      content.appendChild(card);
-    }
-
-    section.appendChild(header);
-    section.appendChild(content);
-    container.appendChild(section);
-  }
+  section.appendChild(header);
+  section.appendChild(content);
+  container.appendChild(section);
 });
