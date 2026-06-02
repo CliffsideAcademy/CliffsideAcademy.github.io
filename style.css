@@ -21,7 +21,7 @@ body {
   justify-content: space-between;
 
   width: 100%;
-  padding: 16px 24px;
+  padding: 16px 28px;
 
   background-color: rgba(85, 50, 140, 0.95);
   border-bottom: 1px solid rgba(140, 90, 220, 0.35);
@@ -40,6 +40,7 @@ body {
 nav {
   display: flex;
   gap: 18px;
+  margin-right: 10px;
 }
 
 nav a {
