@@ -1,5 +1,4 @@
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -9,7 +8,7 @@ body {
   color: rgb(191, 144, 0);
   background-image: url("assets/Background.png");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
   padding: 30px;
   box-sizing: border-box;
@@ -38,14 +37,16 @@ nav a {
 #credits-container {
   display: block;
   margin-top: 20px;
+  padding-bottom: 80px;
 }
 
 .team-header {
   font-size: 22px;
   margin-top: 25px;
-  cursor: pointer;
-  border: 1px solid rgb(191, 144, 0);
-  padding: 10px;
+  border: 1px solid rgb(105, 55, 165);
+  padding: 12px;
+  background-color: rgb(105, 55, 165);
+  color: rgb(191, 144, 0);
 }
 
 .team-content {
@@ -55,11 +56,16 @@ nav a {
   margin-top: 10px;
 }
 
-.hidden {
-  display: none;
+.credit-card {
+  border: 1px solid rgb(105, 55, 165);
+  background-color: rgba(105, 55, 165, 0.15);
+  padding: 12px;
 }
 
-.credit-card {
-  border: 1px solid rgb(191, 144, 0);
-  padding: 12px;
+.card-inner h3 {
+  margin: 0 0 10px 0;
+}
+
+.card-inner p {
+  margin: 0;
 }
