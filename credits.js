@@ -2,11 +2,11 @@ const credits = [
   { username: "DjDanization", rank: "Owner", team: "Ownership" },
   { username: "08Flux", rank: "Co-Owner", team: "Ownership" },
 
-  { username: "CSOM_AccountHolder", rank: "Advisory Board", team: "Security Team (Head)" },
+  { username: "CSOM_AccountHolder", rank: "Advisory Board", team: "Security Team", role: "Head" },
   { username: "vpxc", rank: "Moderator", team: "Security Team" },
 
-  { username: "Wyldd_Playz", rank: "Advisory Board", team: "Approvals Team (Head)" },
-  { username: "Knifeweather", rank: "Administrator", team: "Approvals Team (Co-Head)" },
+  { username: "Wyldd_Playz", rank: "Advisory Board", team: "Approvals Team", role: "Head" },
+  { username: "Knifeweather", rank: "Administrator", team: "Approvals Team", role: "Co-Head" },
   { username: "Shadydornan", rank: "Administrator", team: "Approvals Team" },
 
   { username: "Emmerichvonoperator", rank: "Developer", team: "Development Team" },
@@ -15,8 +15,9 @@ const credits = [
   { username: "Q6m6y5l6l7g2o2", rank: "Administrator", team: "Events Team" },
 
   { username: "QTKylar", rank: "Helper", team: "Wiki Team" },
+
   { username: "Gyroflare", rank: "Helper", team: "Story Team" },
-  { username: "Luvelykas", rank: "Helper", team: "Story/Events Team" },
+  { username: "Luvelykas", rank: "Helper", team: "Story Team" },
   { username: "jjiggy1", rank: "Helper", team: "Story Team" }
 ];
 
@@ -34,20 +35,26 @@ const rankOrder = {
 
 const grouped = {};
 
-// group teams
 credits.forEach(c => {
   if (!grouped[c.team]) grouped[c.team] = [];
   grouped[c.team].push(c);
 });
 
-// sort by rank inside each team
 Object.keys(grouped).forEach(team => {
   grouped[team].sort((a, b) => {
-    return (rankOrder[a.rank] || 99) - (rankOrder[b.rank] || 99);
+    const rankDiff = (rankOrder[a.rank] || 99) - (rankOrder[b.rank] || 99);
+    if (rankDiff !== 0) return rankDiff;
+
+    const roleValue = (r) => {
+      if (r.role === "Head") return 1;
+      if (r.role === "Co-Head") return 2;
+      return 3;
+    };
+
+    return roleValue(a) - roleValue(b);
   });
 });
 
-// render collapsible sections
 Object.keys(grouped).forEach(team => {
   const section = document.createElement("div");
 
@@ -62,9 +69,11 @@ Object.keys(grouped).forEach(team => {
     const card = document.createElement("div");
     card.className = "credit-card";
 
+    const roleText = member.role ? ` (${member.role})` : "";
+
     card.innerHTML = `
       <h3>${member.username}</h3>
-      <p><strong>Rank:</strong> ${member.rank}</p>
+      <p><strong>Rank:</strong> ${member.rank}${roleText}</p>
     `;
 
     content.appendChild(card);
