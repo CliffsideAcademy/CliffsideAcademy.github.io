@@ -1,22 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const hero = document.querySelector(".business-hero");
-  const sections = document.querySelectorAll(".business-section");
+  const hero = document.querySelector(".hero-card");
+  const cards = document.querySelectorAll(".info-card");
 
-  const fadeIn = (el, delay) => {
-    el.classList.add("js-animate");
-    el.style.opacity = "0";
-    el.style.transform = "translateY(10px)";
-    el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+  if (hero) {
+    hero.style.opacity = "0";
+    hero.style.transform = "translateY(10px)";
+    hero.style.transition = "all 0.5s ease";
 
     setTimeout(() => {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    }, delay);
-  };
+      hero.style.opacity = "1";
+      hero.style.transform = "translateY(0)";
+    }, 100);
+  }
 
-  if (hero) fadeIn(hero, 100);
+  cards.forEach((card, i) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(10px)";
+    card.style.transition = "all 0.5s ease";
 
-  sections.forEach((el, i) => {
-    fadeIn(el, 180 + i * 120);
+    setTimeout(() => {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }, 200 + i * 120);
   });
 });
