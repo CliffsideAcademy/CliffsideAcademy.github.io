@@ -2,11 +2,17 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  color: rgb(191, 144, 0);
 }
 
 body {
+  min-height: 100vh;
   background-image: url("assets/Background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+* {
+  color: inherit;
 }
