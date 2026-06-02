@@ -41,7 +41,6 @@ body {
 .title {
   margin: 0;
   font-size: 28px;
-  letter-spacing: 0.5px;
 }
 
 nav {
@@ -67,9 +66,7 @@ nav a {
   text-decoration: none;
 
   font-size: 14px;
-  letter-spacing: 0.3px;
-
-  transition: transform 0.15s ease, filter 0.15s ease;
+  transition: 0.15s;
 }
 
 nav a:hover {
@@ -81,14 +78,7 @@ nav a:hover {
   height: calc(100vh - 90px);
   overflow-y: auto;
 
-  padding: 20px 40px 40px 40px;
-
-  display: block;
-}
-
-.credits-intro {
-  font-size: 20px;
-  margin: 10px 0 25px 0;
+  padding: 20px 40px;
 }
 
 .team-section {
@@ -113,12 +103,6 @@ nav a:hover {
   padding: 14px;
   background-color: rgba(70, 35, 130, 0.55);
   border: 1px solid rgba(140, 90, 220, 0.2);
-  transition: transform 0.15s ease, background-color 0.15s ease;
-}
-
-.credit-card:hover {
-  transform: translateY(-2px);
-  background-color: rgba(85, 45, 150, 0.65);
 }
 
 .card-inner h3 {
@@ -131,10 +115,9 @@ nav a:hover {
   font-size: 14px;
 }
 
-.credits-footer {
-  margin-top: 40px;
-  padding-top: 20px;
+.credits-outro {
   text-align: center;
   font-size: 18px;
-  opacity: 0.95;
+  margin: 25px 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.55);
 }
