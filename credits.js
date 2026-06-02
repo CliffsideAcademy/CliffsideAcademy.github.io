@@ -25,11 +25,6 @@ const container = document.getElementById("credits-container");
 
 container.innerHTML = "";
 
-const intro = document.createElement("h2");
-intro.className = "credits-intro";
-intro.textContent = "And to you, the player. We appreciate you playing our game.";
-container.appendChild(intro);
-
 const rankOrder = {
   Owner: 1,
   "Co-Owner": 2,
@@ -89,10 +84,3 @@ for (const team in grouped) {
   section.appendChild(content);
   container.appendChild(section);
 }
-
-const outro = document.createElement("h2");
-outro.className = "credits-intro";
-outro.textContent =
-  "And to you, the player. We appreciate you playing our game.";
-
-container.appendChild(outro);
