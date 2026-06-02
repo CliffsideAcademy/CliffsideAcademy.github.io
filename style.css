@@ -1,41 +1,37 @@
-/* ===== RESET ===== */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* ===== GLOBAL TEXT COLOR ===== */
 body {
   color: rgb(191, 144, 0);
-
-  /* BACKGROUND IMAGE */
   background-image: url("assets/Background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* ===== HEADER ===== */
 header {
   padding: 10px;
 }
 
-/* Title + nav on same line */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Title */
 .title {
   margin: 0;
 }
 
-/* ===== NAVIGATION ===== */
+nav {
+  display: flex;
+  gap: 50px;
+}
+
 nav a {
   text-decoration: none;
   color: inherit;
-  margin-left: 20px;
 }
