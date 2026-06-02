@@ -29,10 +29,10 @@ header {
 
 nav {
   display: flex;
-  gap: 50px;
+  gap: 80px;
 }
 
 nav a {
+  color: rgb(191, 144, 0);
   text-decoration: none;
-  color: inherit;
 }
