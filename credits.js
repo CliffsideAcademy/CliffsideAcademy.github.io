@@ -45,12 +45,7 @@ Object.keys(grouped).forEach(team => {
     const rankDiff = (rankOrder[a.rank] || 99) - (rankOrder[b.rank] || 99);
     if (rankDiff !== 0) return rankDiff;
 
-    const roleValue = (r) => {
-      if (r.role === "Head") return 1;
-      if (r.role === "Co-Head") return 2;
-      return 3;
-    };
-
+    const roleValue = r => (r.role === "Head" ? 1 : r.role === "Co-Head" ? 2 : 3);
     return roleValue(a) - roleValue(b);
   });
 });
@@ -63,7 +58,7 @@ Object.keys(grouped).forEach(team => {
   header.textContent = team;
 
   const content = document.createElement("div");
-  content.className = "team-content";
+  content.className = "team-content hidden";
 
   grouped[team].forEach(member => {
     const card = document.createElement("div");
