@@ -134,3 +134,25 @@ nav a:active {
   font-size: 14px;
   opacity: 0.95;
 }
+
+
+.panel {
+  margin-top: 30px;
+  padding: 18px;
+
+  background-color: rgba(70, 35, 130, 0.55);
+  border: 1px solid rgba(140, 90, 220, 0.25);
+
+  color: rgb(191, 144, 0);
+}
+
+.panel h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.panel p {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
