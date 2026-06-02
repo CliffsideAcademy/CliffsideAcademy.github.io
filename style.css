@@ -5,8 +5,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -14,10 +14,10 @@ body {
   color: rgb(191, 144, 0);
 
   background-image: url("assets/Background.png");
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-position: center top;
+  background-color: black;
 
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.55);
 }
@@ -47,7 +47,6 @@ nav {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
-  margin-right: 8px;
 }
 
 nav a {
@@ -66,19 +65,11 @@ nav a {
   text-decoration: none;
 
   font-size: 14px;
-  transition: 0.15s;
-}
-
-nav a:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
 }
 
 #credits-container {
-  height: calc(100vh - 90px);
-  overflow-y: auto;
-
-  padding: 20px 40px;
+  margin-top: 20px;
+  padding: 20px 40px 40px 40px;
 }
 
 .team-section {
@@ -118,6 +109,5 @@ nav a:hover {
 .credits-outro {
   text-align: center;
   font-size: 18px;
-  margin: 25px 0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.55);
+  margin: 40px 0 60px 0;
 }
